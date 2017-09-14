@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Lato')
+
+@font-face
+  font-family 'Weather-Icons'
+  font-style normal
+  font-weight normal
+  src url('https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/font/weathericons-regular-webfont.ttf')
+  
+body
+  overflow: hidden
+  padding: 0
+  margin: 0
+  color: white
+  font-family: 'Lato', sans-serif
+  font-style normal
+  font-weight normal
+  font-size: 18px
+
+$fontColor = #888
+$fontSizeSmall = 0.75rem
+.wrapper
+  background-color: #353535
+  display: flex
+  flex-flow: column nowrap
+  justify-content: center
+  height: 100vh
+  text-align: center
+  .today
+    flex: 1
+    #city
+      color: $fontColor
+      margin: 0.1rem
+    .weatherInfo
+      display: flex
+      flex-flow: row wrap
+      justify-content: center
+      #weatherIcon
+        font-size: 10vh
+        height: 10vh
+        &:after
+          font-family: 'Weather-Icons'
+          content: attr(data-icon)
+      #forecast
+        align-self: flex-end;
+        margin: 0.5rem 1rem;
+    .temperature-wrapper
+      display: flex
+      justify-content: center
+    #temperature
+      font-size: 28vh
+      position: relative
+      #metrics
+        position: absolute
+        top: -0.3em
+        right: -0.3em
+        font-size: 13vh
+        &:hover
+          color: lightgreen
+        &:after
+          font-family: 'Weather-Icons'
+          content: attr(data-icon)
+  .daily
+    display: flex
+    flex-direction: column
+    justify-content: center
+    .low-high
+      font-size: 1rem
+      color: white
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+      .low
+        #low
+          color: #0f88ff
+      .high
+        #high
+          color: #f95757
+      span
+        display: block
+        font-size: $fontSizeSmall
+        color: $fontColor
+      .temperature-range
+        width: 60vw;
+        height: 2vh;
+        margin: 0 1rem;
+        max-width: 350px
+        background: linear-gradient(to right, #0f88ff 0%,#2989d8 10%,#207cca 20%,#207cca 30%,#ce6fc0 58%,#f95757 100%)
+        border-radius: 20px
+    .currently
+      display: flex
+      flex-direction: row
+      justify-content: center
+      .icon-wrapper
+        color: $fontColor
+        display: flex    
+        align-items: center
+        margin: 0 0.5rem
+        .metric-text
+          margin: 0 0.3rem
+          font-size: $fontSizeSmall
+        .wind
+          &:after
+            font-family: 'Weather-Icons'
+            content: attr(data-icon)
+        .rain
+          &:after
+            font-family: 'Weather-Icons'
+            content: attr(data-icon)
+        .humi
+          &:after
+            font-family: 'Weather-Icons'
+            content: attr(data-icon)
+  .week
+    color: $fontColor
+    flex: 1
+    display: flex
+    justify-content: center
+    align-items: center
+    .day
+      margin: 0 0.2rem
+      .day-low-high
+        font-size: $fontSizeSmall
+      .day-icon
+        &:after
+          color: $fontColor
+          font-family: 'Weather-Icons'
+          content: attr(data-icon)
+  .made-by
+    color: $fontColor
+    margin-bottom: 0.1rem
+    font-size: $fontSizeSmall
+    a
+      text-decoration: none
+      color: #0f88ff
+      &:visited
+        color: #f95757
+      &:hover
+        text-decoration: underline

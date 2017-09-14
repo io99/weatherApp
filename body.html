@@ -1,0 +1,45 @@
+mixin day(day)
+  .day
+    .day-desc= day
+    .day-icon(data-icon="\uf07a")
+    .day-low-high 12°/15°
+
+.wrapper
+  .today
+    #city Default, DE
+    .weatherInfo
+      #weatherIcon(data-icon="\uf056")
+      #forecast Stormy & Rainy
+    .temperature-wrapper
+      #temperature
+        .temp 100
+        #metrics(data-icon="\uf03c")
+  .daily
+    .low-high
+      .low
+        #low 12
+        span Low
+      .temperature-range
+      .high
+        #high 22
+        span High
+    .currently    
+      .icon-wrapper
+        div
+          .wind(data-icon="\uf050")
+          .metric-text Wind
+        #wind-text.metric-text
+      .icon-wrapper
+        div
+          .rain(data-icon="\uf084")
+          .metric-text Rain
+        #rain-text.metric-text          
+      .icon-wrapper
+        div
+          .humi(data-icon="\uf07a")
+          .metric-text Humidity
+        #humi-text.metric-text
+  .week
+    each day in ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+      +day(day)
+  .made-by Made by #[a(href="https://codepen.io/Knochenmark") Knochenmark]
